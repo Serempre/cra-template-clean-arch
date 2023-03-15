@@ -1,9 +1,8 @@
 {
   "name": "cra-template-clean-arch",
-  "description": "The official Redux+JS template for Create React App.",
-  "version": "1.0.0",
+  "description": "Base template for a clear architecture based on layers ",
+  "version": "1.0.1",
   "main": "template.json",
-  "private": true,
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@reduxjs/toolkit": "^1.8.6",
