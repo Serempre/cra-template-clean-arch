@@ -14,7 +14,9 @@ const persistConfig = {
 }
 const persistReduce = persistReducer(persistConfig, reducers)
 if (process.env.NODE_ENV === "development") {
-    const reduxImmutableStateInvariant = require("redux-immutable-state-invariant").default()
+    const reduxImmutableStateInvariant =
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        require('redux-immutable-state-invariant').default();
     middleware = [...middleware, reduxImmutableStateInvariant, thunk]
 }else{
     middleware = [...middleware, thunk]

@@ -1,7 +1,7 @@
 {
   "name": "cra-template-clean-arch",
   "description": "Base template for a clear architecture based on layers ",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "main": "template.json",
   "dependencies": {
     "@craco/craco": "^7.1.0",
@@ -26,6 +26,7 @@
     "styled-components": "^5.3.6",
     "twin.macro": "^2.8.2",
     "typescript": "^4.9.5",
+    "web-vitals": "^3.3.0",
     "yup": "^0.32.11"
   },
   "repository": {

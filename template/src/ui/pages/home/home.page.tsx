@@ -3,7 +3,7 @@ export const Home: FC = () =>{
     return (
         <div>
             <h1>
-                Home
+                Welcome to clean arch template.
             </h1>
         </div>
     )
