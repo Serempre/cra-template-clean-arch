@@ -1,9 +1,9 @@
-import {ExampleRepository} from "../repositories/example.repository";
+import { type ExampleRepository } from '../repositories/example.repository'
 
-export function exampleUseCase(repository: ExampleRepository){
-    return {
-        getExampleData(){
-            return repository.getExample();
-        }
+export function exampleUseCase (repository: ExampleRepository): ExampleRepository {
+  return {
+    async getExample () {
+      return await repository.getExample()
     }
+  }
 }

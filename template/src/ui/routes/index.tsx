@@ -1,14 +1,12 @@
-import { Routes, Route} from "react-router-dom";
-import React, {FC} from "react";
-import {Home} from "../pages";
+import { Routes, Route } from 'react-router-dom'
+import React from 'react'
+import { Home } from '../pages'
 
-
-
-export const AppRoutes: FC = () => {
-    return (
-        <Routes>
-            {/* Public */}
-            <Route path="/" element={<Home />} />
-        </Routes>
-    )
+export function AppRoutes (): JSX.Element {
+  return (
+    <Routes>
+      {/* Public */}
+      <Route path="/" element={<Home />} />
+    </Routes>
+  )
 }

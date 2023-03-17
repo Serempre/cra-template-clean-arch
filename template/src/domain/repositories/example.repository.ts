@@ -1,5 +1,5 @@
-import {ExampleModel} from "../models/example.model";
+import { type ExampleModel } from '../models/example.model'
 
-export interface ExampleRepository{
-    getExample():Promise<ExampleModel>
+export interface ExampleRepository {
+  getExample: () => Promise<ExampleModel>
 }

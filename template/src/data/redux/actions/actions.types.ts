@@ -1,3 +1,3 @@
 export enum ActionsTypes {
-  EXAMPLE = "EXAMPLE",
+  EXAMPLE = 'EXAMPLE'
 }

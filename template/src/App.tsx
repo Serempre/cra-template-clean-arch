@@ -1,38 +1,34 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import "./App.css";
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { AppRoutes } from './ui/routes'
+import axios, { type AxiosRequestConfig, type AxiosError } from 'axios'
+import { Provider } from 'react-redux'
+import Store from './data/redux/store'
+import { Toaster } from 'react-hot-toast'
 
-import { AppRoutes } from "./ui/routes";
-import axios, { AxiosRequestConfig } from "axios";
-import { Provider } from "react-redux";
-import Store from "./data/redux/store";
-import { Toaster } from "react-hot-toast";
-
-
-axios.defaults.baseURL = process.env.REACT_APP_API_BASE;
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE
 
 const handleRequestSuccess = (
-    request: AxiosRequestConfig
+  request: AxiosRequestConfig
 ): AxiosRequestConfig => {
-
-    return request;
-};
-const handleRequestError = (error: any) => {
-    console.log(`REQUEST ERROR! => ${error}`);
-    return error;
-};
-
-axios.interceptors.request.use(handleRequestSuccess, handleRequestError);
-
-function App() {
-    return (
-        <Provider store={Store.store}>
-            <BrowserRouter>
-                <AppRoutes />
-            </BrowserRouter>
-            <Toaster />
-        </Provider>
-    );
+  return request
 }
 
-export default App;
+function handleRequestError (error: AxiosError): AxiosError {
+  return error
+}
+
+axios.interceptors.request.use(handleRequestSuccess, handleRequestError)
+
+function App (): JSX.Element {
+  return (
+    <Provider store={Store.store}>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+      <Toaster />
+    </Provider>
+  )
+}
+
+export default App

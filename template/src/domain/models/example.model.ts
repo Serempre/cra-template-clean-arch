@@ -1,7 +1,7 @@
-import {ExampleEntity} from "../entities/example.entity";
+import { type ExampleEntity } from '../entities/example.entity'
 
-export interface ExampleModel{
-    response:{
-        example:ExampleEntity
-    }
+export interface ExampleModel {
+  response: {
+    example: ExampleEntity
+  }
 }

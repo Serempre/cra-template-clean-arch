@@ -1,25 +1,24 @@
-import {ExampleRepository} from "../../domain/repositories/example.repository";
-import {ExampleModel} from "../../domain/models/example.model";
+import { type ExampleRepository } from '../../domain/repositories/example.repository'
+import { type ExampleModel } from '../../domain/models/example.model'
 
-export function exampleImp(): ExampleRepository{
-    return  {
-        getExample(): Promise<ExampleModel> {
-            return new Promise<ExampleModel>((resolve, reject)=>{
-                try {
-                    resolve(
-                        {
-                            response:{
-                                example:{
-                                    name: 'Example'
-                                }
-                            }
-                        }
-                    )
-                }catch (e) {
-                    reject(e)
+export function exampleImp (): ExampleRepository {
+  return {
+    async getExample (): Promise<ExampleModel> {
+      return await new Promise<ExampleModel>((resolve, reject) => {
+        try {
+          resolve(
+            {
+              response: {
+                example: {
+                  name: 'Example'
                 }
-            })
+              }
+            }
+          )
+        } catch (e) {
+          reject(e)
         }
-
+      })
     }
+  }
 }

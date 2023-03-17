@@ -1,38 +1,38 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { configureStore } from '@reduxjs/toolkit'
 import reducers from './reducers/'
-import { persistStore, persistReducer } from "redux-persist"
-import storage from "redux-persist/lib/storage"
-import thunk from "redux-thunk"
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import thunk from 'redux-thunk'
 
 const initialState = {}
 let middleware: any[] = []
 const persistConfig = {
-    // Root?
-    key: "root",
-    storage: storage,
-    blacklist: [""],
+  // Root?
+  key: 'root',
+  storage,
+  blacklist: ['']
 }
+
 const persistReduce = persistReducer(persistConfig, reducers)
-if (process.env.NODE_ENV === "development") {
-    const reduxImmutableStateInvariant =
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        require('redux-immutable-state-invariant').default();
-    middleware = [...middleware, reduxImmutableStateInvariant, thunk]
-}else{
-    middleware = [...middleware, thunk]
+if (process.env.NODE_ENV === 'development') {
+  const reduxImmutableStateInvariant =
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require('redux-immutable-state-invariant').default()
+  middleware = [...middleware, reduxImmutableStateInvariant, thunk]
+} else {
+  middleware = [...middleware, thunk]
 }
-
-
 
 const store = configureStore({
-    reducer: persistReduce,
-    middleware:middleware,
-    preloadedState: initialState,
-    devTools : process.env.NODE_ENV === "development"
+  reducer: persistReduce,
+  middleware,
+  preloadedState: initialState,
+  devTools: process.env.NODE_ENV === 'development'
 })
+
 const persistor = persistStore(store)
 
-export default  {
-    store,
-    persistor
+export default {
+  store,
+  persistor
 }
